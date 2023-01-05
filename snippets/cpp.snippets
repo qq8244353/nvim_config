@@ -1,0 +1,1668 @@
+#setl noexpandtab
+snippet template
+    // clang-format off
+    #include "bits/stdc++.h"
+    #include <unistd.h>
+    using namespace std;
+    #include "atcoder/all"
+    using namespace atcoder;
+    using i64 = long long;
+    using u64 = unsigned long long;
+    using ld = long double;
+    using i_i = pair<int, int>;
+    using l_l = pair<i64, i64>;
+    using d_d = pair<double, double>;
+    using s_s = pair<string, string>;
+    using i_i_i = tuple<int, int, int>;
+    using i_i_i_i = tuple<int, int, int, int>;
+    using l_l_l = tuple<i64, i64, i64>;
+    using l_l_l_l = tuple<i64, i64, i64, i64>;
+    #define rep(i, n) for(int i = 0; i < n; i++)
+    #define ifbit(n,k) ((n>>k)&1) //if kth bit of n is on then true (sitakara, 0-indexed)
+    #define zpad(i) cout << setfill('0') << setw(i)
+    #define dout cout << fixed << setprecision(10)
+    #define douts(i) cout << fixed << setprecision(i) << scientific
+    #define pcnt __builtin_popcount
+    #define nub(v, k) (int)(upper_bound(v.begin(), v.end(), k) - v.begin())
+    #define rub(v, k) (int)(upper_bound(v.begin(), v.end(), k, [](auto _l, auto _r) return _l > _r;) - v.begin())
+    #define nlb(v, k) (int)(lower_bound(v.begin(), v.end(), k) - v.begin())
+    #define rlb(v, k) (int)(lower_bound(v.begin(), v.end(), k, [](auto _l, auto _r) return _l > _r;) - v.begin())
+    constexpr int INF = 2147483647;
+    constexpr i64 I64F = 9223372036854775807;
+    constexpr int m1007 = 1000000007;
+    constexpr int m9982 = 998244353;
+    template<class T>bool chmax(T &a, const T &b) { if (a<b) { a=b; return 1; } return 0; }
+    template<class T>bool chmin(T &a, const T &b) { if (b<a) { a=b; return 1; } return 0; }
+    // clang-format on
+
+    int main() {
+        ios::sync_with_stdio(false);
+        std::cin.tie(nullptr);
+				${0}
+        return 0;
+    }
+snippet mod1007
+    using mint = modint1000000007;
+snippet mod9982
+    using mint = modint998244353;
+snippet debug
+    #ifdef _DEBUG
+    #endif
+snippet yes
+    cerr << "yes" << endl;
+snippet bit
+    for (int ${1:s} = 0; s < (1 << ${2:n}); s++) {
+		for (int i = 0; i < $2; i++) {
+			if (itbit(s, i)) {
+				${3}
+			}
+		}
+    }
+snippet for
+    for (int ${1:i} = 0; $1 < ${2:n}; $1++) {
+        ${3}
+    }
+snippet ford
+    for (int ${1:i} = ${2:n - 1}; $1 >= 0; $1--) {
+        ${3}
+    }
+snippet re
+    resize(${1});
+    ${2}
+snippet --
+    rep(i, ${1:a}.size()) $1[i]--;
+    ${2}
+snippet ran
+    ${1:A}.begin(), $1.end());
+    ${2}
+snippet rran
+    ${1:A}.rbegin(), $1.rend());
+    ${2}
+snippet iota
+    iota(${1:a}.begin(), $1.end(), 0);
+    ${2}
+snippet sortt
+    sort(${1:a}.begin(), $1.end(), [&](${2:int} l, $2 r) {
+          ${3}
+        });
+snippet lb
+    lower_bound(${1:A}.begin(), $1.end(), ${2:key});
+    ${3}
+snippet ub
+    upper_bound(${1:A}.begin(), $1.end(), ${2:key});
+    ${3}
+snippet unique
+    ${1:A}.erase(unique($1.begin(), $1.end()), $1.end());
+    ${2}
+snippet remove
+    ${1:A}.erase(remove($1.begin(), $1.end(), ${2:0}), $1.end());
+    ${3}
+snippet inf-1
+    (${1:ans} == INF ? -1 : $1)${2}
+snippet i64f-1
+    (${1:ans} == I64F ? -1 : $1)${2}
+snippet for;
+    for (;;) {
+        ${1}
+    }
+snippet forj
+    for (${1:int} ${2:i} = ${3:0}; $2 < ${4}; $2++) {
+		for (${5:int} ${6:j} = ${7:0}; $6 < ${8}; $6++) {
+			${9}
+		}
+	}
+snippet fork
+    for (${1:int} ${2:i} = ${3:0}; $2 < ${4}; $2++) {
+		for (${5:int} ${6:j} = ${7:0}; $6 < ${8}; $6++) {
+			for (${9:int} ${10:k} = ${11:0}; $10 < ${12}; $10++) {
+				${11}
+			}
+		}
+	}
+snippet fora
+	for (auto ${1:v} : ${2:a}) {
+		${3}
+	}
+snippet forb
+	for (auto& ${1:v} : ${2:a}) {
+        ${3}
+      }
+snippet ford
+    for (${1:int} ${2:i} = ${3:n - 1}; $2 >= ${4:0}; $2--) {
+        ${5}
+    }
+snippet rep
+    rep(${1:i}, ${2:n}) ${3}
+snippet out
+    cout << ${1:ans} << endl;
+    ${2}
+snippet sout
+    cout << fixed << setprecision(10) << ${1:ans} << endl;
+    ${2}
+snippet sout
+    cout << fixed << setprecision(10) << ${1:ans} << endl;
+    ${2}
+snippet inf
+    (${1:ans} == INF ? -1 : $1)
+snippet lnf
+    (${1:ans} == I64F ? -1LL : $1)
+snippet vout
+    for(int i_=0;i_<${1}.size();i_++)cout<<$1[i_]<<(i_+1==$1.size()?"\n":" ");
+    ${3}
+snippet vout2
+    rep(i_,${1}.size())rep(j_,$1[i_].size())cout<<$1[i_][j_]<<(j_+1==$1[i_].size()?"\n":" ");
+    ${3}
+snippet voutn
+    for(int i_=0;i_<${1}.size();i_++)cout<<$1[i_]<<endl;
+    ${3}
+snippet voutpn
+    for(int i_=0;i_<${1}.size();i_++)cout<<$1[i_].first<<" "<<$1[i_].second<<endl;
+    ${3}
+snippet verrpn
+    for(int i_=0;i_<${1}.size();i_++)cerr<<$1[i_].first<<" "<<$1[i_].second<<endl;
+    ${3}
+snippet verr
+    cerr<<"${1} ";rep(i_,$1.size())cerr<<$1[i_]<<(i_+1==$1.size()?"\n":" ");
+    ${3}
+snippet verr2
+    cerr<<"${1}\n";rep(i_,$1.size())rep(j_,$1[i_].size())cerr<<$1[i_][j_]<<(j_+1==$1[i_].size()?"\n":" ");
+    ${3}
+snippet verrm
+    cerr<<"${1} ";rep(i_,$1.size())cerr<<$1[i_].val(0<<(i_+1==$1.size()?"\n":" ");
+    ${3}
+snippet verr2m
+    cerr<<"${1}\n";rep(i_,$1.size())rep(j_,$1[i_].size())cerr<<$1[i_][j_].val()<<(j_+1==$1[i_].size()?"\n":" ");
+    ${3}
+snippet verrnpair
+    for(int i_=0;i_<${1}.size();i_++)cout<<$1[i_].first<<" "<<$1[i_].second<<endl;
+    ${3}
+snippet tov
+	vector to(n, vector<int>());
+snippet pb
+	push_back(${1});
+    ${1}
+snippet pq
+	priority_queue<${1}, vector<$1>, greater<$1>> pq;
+    ${2}
+snippet tyes
+    bool yes = true;
+snippet fyes
+    bool yes = false;
+snippet cYes
+    cout << (yes ? "Yes" : "No") << endl;
+    ${1}
+snippet cYES
+    cout << (yes ? "YES" : "NO") << endl;
+    ${1}
+snippet cyes
+    cout << (yes ? "yes" : "no") << endl;
+    ${1}
+snippet in
+    int ${1}; cin >> $1;
+    ${2}
+snippet in2
+    int ${1}, ${2}; cin >> $1 >> $2;
+    ${3}
+snippet in3
+    int ${1}, ${2}, ${3}; cin >> $1 >> $2 >> $3;
+    ${4}
+snippet in4
+    int ${1}, ${2}, ${3}, ${4}; cin >> $1 >> $2 >> $3 >> $4;
+    ${5}
+snippet in5
+    int ${1}, ${2}, ${3}, ${4}, ${5}; cin >> $1 >> $2 >> $3 >> $4 >> $5;
+    ${6}
+snippet il
+    i64 ${1}; cin >> $1;
+    ${2}
+snippet il2
+    i64 ${1}, ${2}; cin >> $1 >> $2;
+    ${3}
+snippet il3
+    i64 ${1}, ${2}, ${3}; cin >> $1 >> $2 >> $3;
+    ${4}
+snippet il4
+    i64 ${1}, ${2}, ${3}, ${4}; cin >> $1 >> $2 >> $3 >> $4;
+    ${5}
+snippet is
+    string ${1}; cin >> $1;
+    ${2}
+snippet is2
+    string ${1}, ${2}; cin >> $1 >> $2;
+    ${3}
+snippet is3
+    string ${1}, ${2}, ${3}; cin >> $1 >> $2 >> $3;
+    ${4}
+snippet is4
+    string ${1}, ${2}, ${3}, ${4}; cin >> $1 >> $2 >> $3 >> $4;
+    ${5}
+snippet id
+    double ${1}; cin >> $1;
+    ${2}
+snippet id2
+    double ${1}, ${2}; cin >> $1 >> $2;
+    ${3}
+snippet id3
+    double ${1}, ${2}, ${3}; cin >> $1 >> $2 >> $3;
+    ${4}
+snippet id4
+    double ${1}, ${2}, ${3}, ${4}; cin >> $1 >> $2 >> $3 >> $4;
+    ${5}
+snippet ic
+    char ${1}; cin >> $1;
+    ${2}
+snippet ic2
+    char ${1}, ${2}; cin >> $1 >> $2;
+    ${3}
+snippet ic3
+    char ${1}, ${2}, ${3}; cin >> $1 >> $2 >> $3;
+    ${4}
+snippet ic4
+    char ${1}, ${2}, ${3} ,${4}; cin >> $1 >> $2 >> $3 >> $4;
+    ${5}
+snippet inv
+    vector<int> ${1:a}(${2:n}); rep(i, $2) cin >> $1[i];
+    ${3}
+snippet ilv
+    vector<i64> ${1:a}(${2:n}); rep(i, $2) cin >> $1[i];
+    ${3}
+snippet inv2
+    vector ${1:a}(${2:h}, vector<int>(${3:w})); rep(i, $2) rep(j, $3) cin >> $1[i][j];
+    ${4}
+snippet v2
+    vector<vector<int>> ${1:g};
+    ${2}
+snippet valid
+    if (${1:i} < 0 or $1 >= ${2:h} or ${3:j} < 0 or $3 >= ${4:w}) continue;
+    ${5}
+snippet didj
+    int di[] = {0, 1, 0, -1};
+    int dj[] = {1, 0, -1, 0};
+snippet ninj
+    for (int k_ = 0; k_ < ${1:4}; k_++) {
+        int ni = i + di[k_];
+        int nj = j + dj[k_];
+        if (ni < 0 or ni >= ${2:h} or nj < 0 or nj >= ${3:w}) continue;
+        ${4}
+    }
+snippet popcount
+    __builtin_popcount(${1})
+snippet sieve
+    struct sieve {
+        public:
+            sieve (int n) : _n(n), prime(vector<int>(n + 1)), mfact(vector<int>(n + 1)) {
+                for (int i = 0; i <= n; i++) mfact[i] = -1;
+                for (int i = 0; i <= n; i++) prime[i] = true;
+                prime[0] = prime[1] = false;
+                mfact[0] = mfact[1] = 1;
+                for (int i = 2; i <= n; i++) {
+                    if (prime[i]) {
+                        ps.push_back(i);
+                        mfact[i] = i;
+                        for (int j = 2 * i; j <= n; j += i) {
+                            prime[j] = false;
+                            if (mfact[j] == -1) mfact[j] = i;
+                        }
+                    }
+                }
+                s = ps.size();
+            }
+            vector<l_l> fzation(int n) {
+                vector<l_l> ret;
+                if (n > _n or n <= 1) return ret;
+                int i = -1;
+                while (n > 1) {
+                    if (i == -1 or ret[i].first != mfact[n]) {
+                        ret.push_back({mfact[n], 0});
+                        i++;
+                    }
+                    n /= mfact[n];
+                    ret[i].second++;
+                }
+                return ret;
+            }
+            vector<l_l> fzationr(i64 n) {
+                vector<l_l> ret;
+                if (n <= 1) return ret;
+                if (s == 0) return ret;
+                i64 i = 0;
+                i64 cnt = -1;
+                while ((i64)ps[i] * ps[i] <= n) {
+                    if (n % ps[i] == 0) {
+                        ret.push_back({ps[i], 1});
+                        cnt++;
+                        n /= ps[i];
+                        while (n % ps[i] == 0) {
+                            n /= ps[i];
+                            ret[cnt].second++;
+                        }
+                    }
+                    i++;
+                    if (i == s) break;
+                }
+                if (n > 1) ret.push_back({n, 1});
+                return ret;
+            }
+            bool isp(int n) {
+                if (n < 0 or n >= _n) return false;
+                else return prime[n];
+            }
+        private:
+            int _n;
+            int s;
+            vector<int> prime;
+            vector<int> ps;
+            vector<int> mfact;
+    };
+snippet zrekyo
+	vector<i64> allp(const i64& n) {
+		vector<i64> ret;
+		i64 now = 1;
+		while(now * now <= n) {
+			cerr << now << endl;
+			if (n % now == 0) {
+				ret.push_back(now);
+				ret.push_back(n / now);
+			}
+			now++;
+		}
+		ret.erase(unique(ret.begin(), ret.end()), ret.end());
+		sort(ret.begin(), ret.end());
+		return ret;
+	}
+snippet fact
+    class factorial {
+		private:
+			vector<mint> fact;
+			vector<mint> ifact;
+		public:
+			factorial(const int& n) : fact(n + 1), ifact(n + 1) {
+				fact[0] = 1;
+				for (int i = 1; i <= n; i++) {
+					fact[i] = fact[i - 1] * i;
+				}
+				ifact[n] = fact[n].inv();
+				for (int i = n; i >= 1; i--) {
+					ifact[i - 1] = ifact[i] * i;
+				}
+			}
+			mint comb(const int& n, const int& k) {
+				if (k < 0 or k > n) {
+					xD xO xx("Not Valid") xO xP;
+					return 0;
+				}
+				return fact[n] * ifact[k] * ifact[n - k];
+			}
+			mint get_fact(const int& n) { return fact[n]; }
+			mint get_ifact(const int& n) { return ifact[n]; }
+    };
+snippet comb
+	i64 comb(const i64& n, const i64& k) {
+		i64 ret = 1;
+		for (i64 i = 1; i <= k; i++) {
+			ret *= n + 1 - i;
+			ret /= i;
+		}
+		return ret;
+	}
+snippet combmod
+    mint combination(const int& n, const int& k) {
+		mint up = 1, down = 1;
+		for (int i = n; i >= n - k + 1; i--) {
+			up *= i;
+		}
+		for (int i = 1; i <= k; i++) {
+			down *= i;
+		}
+		return up * down.inv();
+    }
+snippet bfs
+    vector dp(${1:h}, vector<int>(${2:w}));
+    queue<pair<i_i, int>> q;
+    int di[] = {0, 1, 0, -1};
+    int dj[] = {1, 0, -1, 0};
+	while (q.size()) {
+		auto [now, cost] = q.front(); q.pop();
+		auto [i, j] = now;
+        if (dp[i][j] <= cost) continue;
+        dp[i][j] = cost;
+        cost++;
+		for (int i_ = 0; i_ < 4; i_++) {
+			int ni = i + di[i_];
+			int nj = j + dj[i_];
+			if (ni < 0 or nj < 0 or ni >= $1 or nj >= $2) continue;
+            ${3}
+            if (dp[ni][nj] <= cost) continue;
+			q.push({{ni, nj}, cost});
+		}
+	}
+snippet dijkstra
+    vector<i64> dijkstra(int s, vector<vector<i_i>>& to) {
+        int n = to.size();
+        vector<i64> dp(n, I64F); 
+        priority_queue<l_l> pq;
+        pq.push({0, s});
+        while (pq.size()) {
+            auto [cost, now] = pq.top(); pq.pop();
+            cost *= -1;
+            if (dp[now] <= cost) continue;
+            dp[now] = cost;
+            for (int i = 0; i < to[now].size(); i++) {
+                auto [next, c] = to[now][i];
+                if (dp[next] <= cost + c) continue;
+                pq.push({(cost + c) * -1, next});
+            }
+        }
+        return dp;
+    }
+    vector<int> dijkstra_restore(int s, int e, vector<i64>& dp, vector<vector<i_i>>& to) {
+        vector<int> ret;
+        queue<l_l> q;
+        q.push({e, dp[e]});
+        while (q.size()) {
+            auto [now, cost] = q.front(); q.pop();
+            ret.push_back(now);
+            if (now == s) {
+                reverse(ret.begin(), ret.end());
+                return ret;
+            }
+            for (int i = 0; i < to[now].size(); i++) {
+                auto [next, c] = to[now][i];
+                if (cost - c == dp[next]) {
+                    q.push({next, cost - c});
+                    break;
+                }
+            }
+        }
+        return ret;
+    }
+snippet seg
+    using S = i64;
+    S op(S a, S b) { return ; }
+    S e() { return ; }
+    segtree<S, op, e> seg();
+snippet segsum
+    using S = i64;
+    S op(S a, S b) { return a + b; }
+    S e() { return 0LL; }
+    segtree<S, op, e> seg();
+snippet segmin
+    using S = i64;
+    S op(S a, S b) { return min(a, b); }
+    S e() { return I64F; }
+    segtree<S, op, e> seg();
+snippet segmax
+    using S = i64;
+    S op(S a, S b) { return max(a, b); }
+    S e() { return -I64F; }
+    segtree<S, op, e> seg();
+snippet lazyseg
+    using S = i64;
+    using F = i64;
+    S op(S a, S b) { return ; }
+    S e() { return ; }
+    S mapping(F f, S x) { return ; }
+    //after, before
+    F composition(F f, F g) { return ; }
+    //mapping(id(), a) == a
+    F id (){ return ; }
+    lazy_segtree<S, op, e, F, mapping, composition, id> lzseg();
+snippet lazysegsumadd
+    struct S {
+        i64 value;
+        i64 size;
+    };
+    using F = i64;
+    S op(S a, S b) { return {a.value + b.value, a.size + b.size} ; }
+    S e() { return {0, 0}; }
+    S mapping(F f, S x) { return {x.value + x.size * f, x.size} ; }
+    F composition(F f, F g) { return f + g; }
+    F id (){ return 0LL; }
+    lazy_segtree<S, op, e, F, mapping, composition, id> lzseg();
+snippet lazysegminadd
+    using S = i64;
+    using F = i64;
+    S op(S a, S b) { return min(a, b); }
+    S e() { return I64F; }
+    S mapping(F f, S x) { return x + f; }
+    F composition(F f, F g) { return f + g; }
+    F id (){ return 0LL; }
+    lazy_segtree<S, op, e, F, mapping, composition, id> lzseg();
+snippet lazysegmaxadd
+    using S = i64;
+    using F = i64;
+    S op(S a, S b) { return max(a, b); }
+    S e() { return -I64F; }
+    S mapping(F f, S x) { return x + f; }
+    F composition(F f, F g) { return f + g; }
+    F id (){ return 0LL; }
+    lazy_segtree<S, op, e, F, mapping, composition, id> lzseg();
+snippet cord
+    template<class T>
+    void cord(vector<T>& a) {
+        set<T> s(a.begin(), a.end());
+        map<int, T> d;
+        int cnt = 0;
+        for (auto x : s) d[x] = cnt++;
+        for (auto &x : a) x = d[x];
+    }
+snippet matrix_ex
+    class matrix_ex {
+        private:
+            int n;
+            vector<vector<T>> rec_relation;
+            vector<vector<T>> multipl_sqare(const vector<vector<T>>& lhs,
+                    const vector<vector<T>>& rhs) {
+                vector ret(n, vector<T>(n, 0));
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j < n; j++) {
+                        for (int k = 0; k < n; k++) {
+                            ret[i][j] += lhs[i][k] * rhs[k][j];
+                        }
+                    }
+                }
+                return ret;
+            }
+            vector<T> multipl(const vector<vector<T>>& lhs, const vector<T>& rhs) {
+                vector<T> ret(n, 0);
+                for (int i = 0; i < n; i++) {
+                    for (int k = 0; k < n; k++) {
+                        ret[i] += lhs[i][k] * rhs[k];
+                    }
+                }
+                return ret;
+            }
+        public:
+            matrix_ex(const vector<vector<T>>& vec_in) : n(vec_in.size()) {
+                rec_relation = vector<vector<T>>(n, vector<T>(n));
+                rec_relation = vec_in;
+            }
+            vector<T> get_ans(i64 t, const vector<T>& vec_in) {
+                vector ret(n, vector<T>(n, 0));
+                for (int i = 0; i < n; i++) {
+                    ret[i][i] = 1;
+                }
+                while (t) {
+                    if ((t % 2LL) == 0LL) {
+                        rec_relation = multipl_sqare(rec_relation, rec_relation);
+                        t >>= 1LL;
+                    }
+                    else {
+                        ret = multipl_sqare(rec_relation, ret);
+                        t--;
+                    }
+                }
+                return multipl(ret, vec_in);
+            }
+    };
+#marathon
+snippet randxor
+    inline static uint32_t randXor(){
+        static unsigned long x=123456789,y=362436069,z=521288629,w=88675123;
+        unsigned long t=(x^(x<<11));
+        x=y;y=z;z=w;
+        return ((w=(w^(w>>19))^(t^(t>>8)))-1);
+    }
+    inline static double rand01() {
+        return (randXor() + 0.5) * (1.0 / UINT_MAX);
+    }
+snippet lca
+    //T: type of cost
+    template<class T> struct lca {
+        public:
+            lca(int n_) : n(n_), to(n), co(n), dep(n), costs(n) {
+                l = 0;
+                while ((1<<l) < n) l++;
+                par = vector<vector<int>>(n + 1, vector<int>(l, n));
+            }
+            void add_edge(int a, int b, T c = 1) {
+                to[a].push_back(b); co[a].push_back(c);
+                to[b].push_back(a); co[b].push_back(c);
+            }
+            void init(int root_ = 0) {
+                root = root_;
+                dfs(root);
+                for (int i = 0; i < l - 1; i++) {
+                    for (int v = 0; v < n; v++) {
+                        par[v][i + 1] = par[par[v][i]][i];
+                    }
+                }
+            }
+            int get(int a, int b) {
+                if (dep[a] > dep[b]) swap(a, b);
+                int gap = dep[b] - dep[a];
+                for (int i = l - 1; i >= 0; i--) {
+                    int len = 1<<i;
+                    if (gap >= len) {
+                        gap -= len;
+                        b = par[b][i];
+                    }
+                }
+                if (a == b) return a;
+                for (int i = l - 1; i >= 0; i--) {
+                    int na = par[a][i];
+                    int nb = par[b][i];
+                    if (na != nb) a = na, b = nb;
+                }
+                return par[a][0];
+            }
+            T dist(int a, int b) {
+                int c = get(a, b);
+                return costs[a] + costs[b] - costs[c] * 2;
+            }
+        private:
+            int n, root, l;
+            vector<vector<int>> to;
+            vector<vector<T>> co; //cost
+            vector<int> dep;
+            vector<T> costs; //costs sum
+            vector<vector<int>> par;
+            void dfs(int v, int d = 0, T c = 0, int p = -1) {
+                if (p != -1) par[v][0] = p;
+                dep[v] = d;
+                costs[v] = c;
+                for (int i = 0; i < to[v].size(); i++) {
+                    int u = to[v][i];
+                    if (u == p) continue;
+                    dfs(u, d + 1, c + co[v][i], v);
+                }
+            }
+    };
+snippet warshall
+    template<class T>void warshall_floyd(T& co) {
+        int n = co.size();
+        rep(k,n) rep(i, n) rep(j, n) {
+            if (co[i][k] == I64F) continue;
+            if (co[k][j] == I64F) continue;
+            chmin(co[i][j], co[i][k] + co[k][j]);
+        }
+    }
+snippet frac
+    template<class T>
+    class frac {
+        private:
+            T n;//numer
+            T d;//denom
+        public:
+            frac(T n_ = 1, T d_ = 1) : n(n_), d(d_) {} 
+            T gn() const { return n; } //get numer
+            T gd() const { return d; } //get denom
+            bool operator <(const frac& other) { return n * other.gd() < d * other.gn(); }
+            bool operator <=(const frac& other) { return n * other.gd() <= d * other.gn(); }
+            bool operator >(const frac& other) { return n * other.gd() > d * other.gn(); }
+            bool operator >=(const frac& other) { return n * other.gd() >= d * other.gn(); }
+    };
+snippet comp
+    template<class T>
+    class comp {
+        private:
+            T r;//real
+            T i;//imaginary
+        public:
+            comp(T r_ = 0, T i_ = 0) : r(r_), i(i_) {}
+            T gr() { return r; }
+            T gi() { return i; }
+            comp operator+(const comp& other) { return comp(r + other.gr(), i + other.gi()); }
+            comp operator-(const comp& other) { return comp(r - other.gr(), i - other.gi()); }
+            comp operator*(const comp& other) { return comp(r * r - other.gi() * other.gi(), r * other.gi() + i * other.gr()); }
+            /*
+            bool operator<(const comp& other) { if (r == other.gr()) return i < other.gi(); else return r < other.gr(); }
+            bool operator<=(const comp& other) { if (r == other.gr()) return i <= other.gi(); else return r <= other.gr(); }
+            bool operator>(const comp& other) { if (r == other.gr()) return i > other.gi(); else return r > other.gr(); }
+            bool operator>=(const comp& other) { if (r == other.gr()) return i >= other.gi(); else return r >= other.gr(); }
+            */
+    };
+snippet seg2d
+    template <class S, S (*op)(S, S), S (*e)()> struct segtree2d {
+        public:
+            segtree2d() : segtree2d(0, 0) {}
+            explicit segtree2d(int h, int w) : segtree2d(vector<vector<S>>(h, vector<S>(w, e()))) {}
+            explicit segtree2d(const vector<vector<S>>& u) : _h(int(u.size())), _w(int(u[0].size())) {
+                hlog = ceil_pow(_h);
+                hsize = 1 << hlog;
+                wlog = ceil_pow(_w);
+                wsize = 1 << wlog;
+                v = vector<vector<S>>(2 * hsize, vector<S>(2 * wsize, e()));
+                for (int i = 0; i < _h; i++) {
+                    for (int j = 0; j < _w; j++) {
+                            v[hsize + i][wsize + j] = u[i][j];
+                    }
+                }
+                for (int i = hsize * 2 - 1; i >= 1; i--) {
+                    if (i > hsize - 1) {
+                        for (int j = wsize - 1; j >= 1; j--) {
+                            update1(i, j);
+                        }
+                    }
+                    else {
+                        for (int j = wsize * 2 - 1; j >= 1; j--) {
+                            update2(i, j);
+                        }
+                    }
+                }
+            }
+            void set(int p, int q, S x) {
+                assert(0 <= p && p < _h && 0 <= q && q < _w);
+                p += hsize;
+                q += wsize;
+                v[p][q] = x;
+                for (int j = 1; j <= wlog; j++) {
+                    update1(p, q >> j);
+                }
+                for (int i = 1; i <= hlog; i++) {
+                    for (int j = 0; j <= wlog; j++) {
+                        update2(p >> i, q >> j);
+                    }
+                }
+            }
+
+            S get(int p, int q) const {
+                assert(0 <= p && p < _h && 0 <= q && q < _w);
+                return v[p + hsize][q + wsize];
+            }
+
+            S prod(int u, int d, int l, int r) const {
+                assert(0 <= l && l <= r && r <= _w && 0 <= u && u <= d && d <= _h);
+                S smu = e(), smd = e();
+                u += hsize;
+                d += hsize;
+
+                while (u < d) {
+                    if (u & 1) smu = op(smu, prod2(l, r, u++));
+                    if (d & 1) smd = op(prod2(l, r, --d), smd);
+                    u >>= 1;
+                    d >>= 1;
+                }
+                return op(smu, smd);
+            }
+
+            S all_prod() const { return v[1][1]; }
+
+        private:
+            int _h, hsize, hlog;
+            int _w, wsize, wlog;
+            vector<vector<S>> v;
+
+            void update1(int i, int k) { v[i][k] = op(v[i][2 * k], v[i][2 * k + 1]); }
+
+            void update2(int k, int j) { v[k][j] = op(v[2 * k][j], v[2 * k + 1][j]); }
+
+            S prod2(int l, int r, int i) const {
+                S sml = e(), smr = e();
+                l += wsize;
+                r += wsize;
+
+                while (l < r) {
+                    if (l & 1) sml = op(sml, v[i][l++]);
+                    if (r & 1) smr = op(v[i][--r], smr);
+                    l >>= 1;
+                    r >>= 1;
+                }
+                return op(sml, smr);
+            }
+
+            int ceil_pow(int n) {
+                int x = 0;
+                while ((1U << x) < (unsigned int)(n)) x++;
+                return x;
+            }
+    };
+snippet seg2dlight
+    template <class S, S (*op)(S, S), S (*e)()> struct segtree2d_light {
+        public:
+            segtree2d_light() : segtree2d_light(0, 0, vector<pair<int, int>>()) {}
+            explicit segtree2d_light(int h, int w, const vector<pair<int, int>>& u) : _h(h), _w(w) {
+                log = ceil_pow(_h);
+                size = 1 << log;
+                ind = vector<vector<int>>(size * 2);
+                for (auto [y, x] : u) {
+                    ind[y + size].push_back(x);
+                }
+                for (int i = size * 2 - 1; i >= 1; i--) {
+                    sort(ind[i].begin(), ind[i].end());
+                    ind[i].erase(unique(ind[i].begin(), ind[i].end()), ind[i].end());
+                    for (auto x : ind[i]) {
+                        ind[i >> 1].push_back(x);
+                    }
+                }
+                v = vector<segtree<S, op, e>>(size * 2);
+                for (int i = 1; i < size * 2; i++) {
+                    v[i] = segtree<S, op, e>(ind[i].size());
+                }
+            }
+
+            void set(int p, int q, S t) {
+                assert(0 <= p && p < _h && 0 <= q && q < _w);
+                p += size;
+                while (p) {
+                    int x = 0;
+                    if (ind[p].size())
+                        x = lower_bound(ind[p].begin(), ind[p].end(), q) - ind[p].begin();
+                    assert(x != ind[p].size() && q == ind[p][x]);
+                    if (p >= size) v[p].set(x, t);
+                    else v[p].set(x, get2(p, q));
+                    p >>= 1;
+                }
+            }
+
+            S get(int p, int q) const {
+                assert(0 <= p && p < _h && 0 <= q && q < _w);
+                p += size;
+                int x = 0;
+                if (ind[p].size())
+                    x = lower_bound(ind[p].begin(), ind[p].end(), q) - ind[p].begin();
+                if (x == ind[p].size() || q != ind[p][x]) return e();
+                return v[p].get(x);
+            }
+
+            S prod(int u, int d, int l, int r) const {
+                assert(0 <= l && l <= r && r <= _w && 0 <= u && u <= d && d <= _h);
+                S smu = e(), smd = e();
+                u += size;
+                d += size;
+                while (u < d) {
+                    if (u & 1) smu = op(smu, prod2(l, r, u++));
+                    if (d & 1) smd = op(prod2(l, r, --d), smd);
+                    u >>= 1;
+                    d >>= 1;
+                }
+                S ret = op(smu, smd);
+                return ret;
+            }
+
+            S all_prod() const { return v[1].all_prod(); }
+
+        private:
+            int _h, _w;
+            int log, size;
+            vector<segtree<S, op, e>> v;
+            vector<vector<int>> ind;
+
+            S prod2(int l, int r, int i) const {
+                int s = 0, t = 0;
+                if (ind[i].size())
+                    s = lower_bound(ind[i].begin(), ind[i].end(), l) - ind[i].begin();
+                if (ind[i].size())
+                    t = lower_bound(ind[i].begin(), ind[i].end(), r) - ind[i].begin();
+                return v[i].prod(s, t);
+            }
+
+            S get2(int p, int q) const {
+                int lp = 2 * p;
+                int rp = 2 * p + 1;
+                int lx = 0, rx = 0;
+                if (ind[lp].size())
+                    lx = lower_bound(ind[lp].begin(), ind[lp].end(), q) - ind[lp].begin();
+                if (ind[rp].size())
+                    rx = lower_bound(ind[rp].begin(), ind[rp].end(), q) - ind[rp].begin();
+                S sml = e(), smr = e();
+                if (lx != ind[lp].size() && q == ind[lp][lx]) sml = v[lp].get(lx);
+                if (rx != ind[rp].size() && q == ind[rp][rx]) smr = v[rp].get(rx);
+                S ret = op(sml, smr);
+                return ret;
+            }
+
+            int ceil_pow(int n) const {
+                int x = 0;
+                while ((1U << x) < (unsigned int)(n)) x++;
+                return x;
+            }
+    };
+snippet swag
+    template <class S, S (*op)(S, S)> struct swag {
+        public:
+            swag() : stf(), stb() {}
+
+            bool empty() const { return stf.empty() && stb.empty(); }
+
+            size_t size() const { return stf.size() + stb.size(); }
+
+            S fold() const {
+                assert(!empty());
+                if (stf.empty()) {
+                    return stb.top().s;
+                }
+                else if (stb.empty()) {
+                    return stf.top().s;
+                }
+                else {
+                    return op(stf.top().s, stb.top().s);
+                }
+            }
+
+            void push(const S &x) {
+                if (stb.empty()) {
+                    stb.emplace(x, x);
+                }
+                else {
+                    S t{op(stb.top().s, x)};
+                    stb.emplace(x, t);
+                }
+            }
+
+            void pop() {
+                assert(!empty());
+                if(stf.empty()) {
+                    stf.emplace(stb.top().v, stb.top().v);
+                    stb.pop();
+                    while(!stb.empty()) {
+                        S t{op(stb.top().v, stf.top().s)};
+                        stf.emplace(stb.top().v, t);
+                        stb.pop();
+                    }
+                }
+                stf.pop();
+            }
+        private:
+            struct node {
+                S v, s;
+                node() : node(0, 0) {}
+                explicit node(const S &_v, const S &_s) : v(_v), s(_s) {}
+            };
+            //stack front, stack back
+            stack<node> stf, stb;
+    };
+snippet hld
+    template <class S, S (*op)(S, S), S (*e)()> struct hld {
+        public:
+            hld() : hld(0) {}
+            explicit hld(const vector<vector<int>>& v)
+                : n(v.size()), g(vector<data>(n)), to(v), segi(segtree<S, op, e>(n)), segj(segtree<S, op, e>(n)) {}
+
+            void set(int v, S w) {
+                g[v].w = w;
+                segi.set(g[v].i, w);
+                segj.set(g[v].j, w);
+            }
+
+            S get(int v) const {
+                return g[v].w;
+            }
+
+            int lca (int l, int r) const {
+                while (true) {
+                    //top left, top right
+                    int tl = g[l].t, tr = g[r].t;
+                    if (tl == tr) {
+                        if (g[l].d < g[r].d) return l;
+                        else return r;
+                    }
+                    if (g[tl].d < g[tr].d) r = g[tr].p;
+                    else l = g[tl].p;
+                }
+            }
+
+            void build(int p = 0) {
+                //heavy
+                vector<int> hvy(n, -1);
+                dfs(p, -1, p, hvy);
+                dfs2(p, -1, p, 0, hvy);
+            }
+
+            S prod_node(int l, int r) const {
+                S sml = e(), smr = e();
+                while (true) {
+                    //top left, top right
+                    int tl = g[l].t, tr = g[r].t;
+                    if (tl == tr) {
+                        if (g[l].d < g[r].d) {
+                            sml = op(sml, segi.prod(g[l].i, g[r].i + 1)); 
+                            l = r;
+                        }
+                        else {
+                            sml = op(sml, segj.prod(g[l].j, g[r].j + 1)); 
+                            l = r;
+                        }
+                        S ret = op(sml, smr);
+                        return ret;
+                    }
+                    if (g[tl].d < g[tr].d) {
+                        smr = op(segi.prod(g[tr].i, g[r].i + 1), smr);
+                        r = g[tr].p;
+                    }
+                    else {
+                        sml = op(sml, segj.prod(g[l].j, g[tl].j + 1));
+                        l = g[tl].p;
+                    }
+                }
+            }
+
+            S prod_edge(int l, int r) {
+                int v = lca(l, r);
+                S tmp = get(v);
+                set(v, e());
+                S ret = prod_node(l, r);
+                set(v, tmp);
+                return ret;
+            }
+
+        private:
+            struct data {
+                //depth, parent, top, index top to bottom, index bottom to top
+                int d, p, t, i, j;
+                S w;
+                data () : d(0), p(0), t(0), i(0), j(0), w(e()) {}
+            };
+
+            int n;
+            vector<data> g;
+            vector<vector<int>> to;
+            segtree<S, op, e> segi;
+            segtree<S, op, e> segj;
+
+            int dfs(int v, int p, int d, vector<int>& hvy) {
+                g[v].d = d; g[v].p = p;
+                int sz = 1, sz_max = 0, sz_c;
+                for (auto u : to[v]) {
+                    if (u == p) continue;
+                    sz_c = dfs(u, v, d + 1, hvy);
+                    sz += sz_c;
+                    if (chmax(sz_max, sz_c)) hvy[v] = u;
+                }
+                return sz;
+            }
+            
+            int dfs2(int v, int p, int t, int i, vector<int> &hvy) {
+                g[v].t = t;
+                g[v].i = i; segi.set(i, g[v].w);
+                i += 1;
+                g[v].j = n - i ;segj.set(n - i, g[v].w);
+                if (hvy[v] >= 0) {
+                    i = dfs2(hvy[v], v, t, i, hvy);
+                }
+                for (auto u : to[v]) {
+                    if (u == hvy[v] or u == p) continue;
+                    i = dfs2(u, v, u, i, hvy);
+                }
+                return i;
+            }
+    };
+snippet rerootingdp
+    template <class S, class T, class U, S (*e)(), S(*val)(S, T), S (*merge)(S, S), S (*upd)(S, U)>
+    struct rerooting_dp {
+        public:
+            rerooting_dp() : rerooting_dp({}) {}
+            explicit rerooting_dp(const vector<vector<int>>& v)
+                : to(v), dp(vector<vector<S>>(v.size())), ans(vector<S>(v.size())) {
+                    dfs(0, -1);
+                    dfs2(0, -1, e());
+                }
+
+            S get(int v) const {
+                return ans[v];
+            }
+
+            void debug() const {
+                cerr<<"dp\n";rep(i_,dp.size())rep(j_,dp[i_].size())cerr<<dp[i_][j_]<<(j_+1==dp[i_].size()?"\n":" ");
+                cerr << "yes" << endl;
+            }
+
+        private:
+            vector<vector<int>> to;
+            vector<vector<S>> dp;
+            vector<S> ans;
+
+            S dfs(int v, int p) {
+                S sum = e();
+                dp[v] = vector<S>(to[v].size());
+                for (int i = 0; i < to[v].size(); i++) {
+                    if (to[v][i] == p) continue;
+                    dp[v][i] = dfs(to[v][i], v);
+                    sum = merge(sum, val(dp[v][i], T())); //change here
+                }
+                sum = upd(sum, U()); //change here
+                return sum;
+            }
+
+            void dfs2(int v, int p, const S &s) {
+                for (int i = 0; i < to[v].size(); i++) {
+                    if (to[v][i] == p) {
+                        dp[v][i] = s;
+                        break;
+                    }
+                }
+                vector<S> smr(to[v].size() + 1);
+                smr[to[v].size()] = e();
+                for (int i = to[v].size(); i > 0; i--) {
+                    smr[i - 1] = merge(smr[i], val(dp[v][i - 1], T())); //change here
+                }
+                ans[v] = upd(smr[0], U()); //change here
+                S sml = e();
+                for (int i = 0; i < to[v].size(); i++) {
+                    if (to[v][i] != p) {
+                        S t = merge(sml, smr[i + 1]);
+                        dfs2(to[v][i], v, upd(t, U())); //change here
+                    }
+                    sml = merge(sml, val(dp[v][i], T())); //change here
+                }
+            }
+    };
+    using S;
+    struct T {
+    };
+    struct U {
+    };
+    S e() {
+    }
+    S val(S s, T t) {
+    }
+    S merge(S a, S b) {
+    }
+    S upd(S s, U u) {
+    }
+        vector to(n, vector<int>());
+        rerooting_dp<S, T, U, e, val, merge, upd> dp(to);
+snippet eulertour
+    int n;
+    vector<vector<int>> to;
+    vector<int> in;
+    vector<int> out;
+    int cnt;
+    int d;
+    vector<int> dep;
+
+    void dfs(int v, int p) {
+        in[v] = cnt++;
+        dep[v] = d;
+        for (auto u : to[v]) {
+            if (u == p) continue;
+            d++;
+            dfs(u, v);
+            d--;
+        }
+        out[v] = cnt++;
+    }
+snippet eulertour2
+    template<class S, S (*e)()> struct euler_tour {
+        public:
+            euler_tour() : euler_tour(0, vector<vector<int>>(), vector<S>(), vector<S>()) {}
+            explicit euler_tour(int root, const vector<vector<int>>& v,
+                    const vector<S>& cv, const vector<S>& ce) : n(to.size()), to(v) {
+                    build(root, cv, ce);
+                }
+
+            S prod_ver(int p) {
+                return ver[out[p] + 1] - ver[in[p]];
+            }
+
+            S prod_edge(int p) {
+                return ver[out[p] + 1] - ver[in[p] + 1];
+            }
+
+        private:
+            int n;
+            vector<vector<int>> to;
+            vector<int> in;
+            vector<int> out;
+            vector<S> ver;
+            vector<S> edge;
+
+            void dfs(int v, int p, int& cnt) {
+                in[v] = cnt++;
+                for (auto u : to[v]) {
+                    if (u == p) continue;
+                    dfs(u, v);
+                }
+                out[v] = cnt++;
+            }
+
+            void build(int root, const vector<S>& cv, const vector<S>& ce) {
+                dfs(root, -1, 0);
+                ver.resize(n * 2 + 1, e());
+                edge.resize(n * 2 + 1, e());
+                for (int i = 0; i < n; i++) {
+                    ver[in[i] + 1] = cv[i];
+                    edge[in[i] + 1] = ce[i];
+                }
+                for (int i = 0; i < n * 2; i++) {
+                    ver[i + 1] = ver[i] + ver[i + 1];
+                    edge[i + 1] = edge[i] + edge[i + 1];
+                }
+            }
+    };
+snippet extgcd
+    //assert(a >= b)
+    l_l_l extgcd(i64 a, i64 b) {
+        if (b == 0) return {a, 1, 0};
+        auto [g, x, y] = extgcd(b, a % b);
+        return {g, y, x - a / b * y};
+    }
+snippet ser
+    template <class F> i64 optimize(i64 low, i64 high, const F& f) {
+        while (high - low > 2) {
+            const i64 m1 = (low + high) / 2;
+            const i64 m2 = m1 + 1;
+            if (f(m1) < f(m2)) {
+                low = m1;
+            }
+            else {
+                high = m2;
+            }
+        }
+        return f(low + 1);
+    }
+snippet maxright
+    template <class F> i64 maxright(i64 l, i64 r, const F& f) {
+        while (r > l + 1) {
+            i64 m = (l + r) / 2;
+            if (f(m)) l = m;
+            else r = m;
+        }
+        return l;
+    }
+snippet minleft
+    template <class F> i64 minleft(i64 l, i64 r, const F& f) {
+        while (r > l + 1) {
+            i64 m = (l + r) / 2;
+            if (f(m)) r = m;
+            else l = m;
+        }
+        return r;
+    }
+snippet matpow
+    template <class T> vector<vector<T>> mat_mul(const vector<vector<T>>& l, const vector<vector<T>>& r) {
+        assert(!r.empty());
+        int h = l.size(), h1 = r.size(), w = r[0].size();
+        vector v(h, vector(w, T(0)));
+        rep(i, h) assert(l[i].size() == h1);
+        rep(i, h) rep(j, w) rep(k, h1) v[i][j] += l[i][k] * r[k][j];
+        return v;
+    }
+    template <class T> vector<vector<T>> mat_pow(vector<vector<T>> v, i64 k) {
+        int n = v.size();
+        vector u(n, vector(n, T(0))); rep(i, n) u[i][i] = T(1);
+        while (k) {
+            if (k & 1) u = mat_mul(u, v);
+            k >>= 1;
+            v = mat_mul(v, v);
+        }
+        return u;
+    }
+snippet matmul
+    template <class T> vector<vector<T>> mat_mul(const vector<vector<T>>& l, const vector<vector<T>>& r) {
+        assert(!r.empty());
+        int h = l.size(), h1 = r.size(), w = r[0].size();
+        vector v(h, vector(w, T(0)));
+        rep(i, h) assert(l[i].size() == h1);
+        rep(i, h) rep(j, w) rep(k, h1) v[i][j] += l[i][k] * r[k][j];
+        return v;
+    }
+snippet rollinghash
+    const unsigned bases[64] = {257,262,266,275,276,281,285,290,296,302,306,310,311,313,323,333,344,345,350,357,367,370,373,402,423,425,431,440,442,443,454,457,458,462,471,478,481,487,489,492,499,501,502,503,506,514,524,532,535,541,550,552,557,559,562,563,567,570,571,580,592,597,604,612};
+    const u64 mod = 0x1fffffffffffffff, base = bases[chrono::duration_cast<chrono::microseconds>(chrono::system_clock::now().time_since_epoch()).count() & 63];
+    struct rollinghash {
+        public:
+            rollinghash() : rollinghash("") {}
+            explicit rollinghash (const string &s) {
+                i64 n = s.size();
+                hashed.assign(n + 1, 0);
+                power.assign(n + 1, 0);
+                power[0] = 1;
+                for(i64 i = 0; i < n; i++) {
+                    power[i + 1] = mul(power[i], base);
+                    hashed[i + 1] = mul(hashed[i], base) + s[i];
+                    if(hashed[i + 1] >= mod) hashed[i + 1] -= mod;
+                }
+            }
+
+            u64 get(i64 l, i64 r) const {
+                u64 ret = hashed[r] + mod - mul(hashed[l], power[r - l]);
+                if(ret >= mod) ret -= mod;
+                return ret;
+            }
+
+            u64 connect(u64 h1, u64 h2, i64 h2len) const {
+                u64 ret = mul(h1, power[h2len]) + h2;
+                if(ret >= mod) ret -= mod;
+                return ret;
+            }
+
+            void connect(const string &s){
+                i64 n = hashed.size() - 1, m = s.size();
+                hashed.resize(n + m + 1);
+                power.resize(n + m + 1);
+                for(i64 i = n; i < n + m; i++) {
+                    power[i + 1] = mul(power[i], base);
+                    hashed[i + 1] = mul(hashed[i], base) + s[i - n];
+                    if(hashed[i + 1] >= mod) hashed[i + 1] -= mod;
+                }
+            }
+
+            i64 LCP(const rollinghash &b, i64 l1, i64 r1, i64 l2, i64 r2) {
+                i64 len = min(r1 - l1, r2 - l2);
+                i64 low = -1, high = len + 1;
+                while(high - low > 1) {
+                    i64 mid = (low + high) / 2;
+                    if(get(l1, l1 + mid) == b.get(l2, l2 + mid)) low = mid;
+                    else high = mid;
+                }
+                return low;
+            }
+
+        private:
+            vector<u64> hashed, power;
+
+            static constexpr u64 mask(i64 a){ return (1ull << a) - 1; }
+
+            inline u64 mul(u64 a, u64 b) const {
+                u64 a31 = a >> 31, b31 = b >> 31;
+                a &= mask(31);
+                b &= mask(31);
+                u64 x = a * b31 + b * a31;
+                u64 ans = (a31 * b31 << 1) + (x >> 30) + ((x & mask(30)) << 31) + a * b;
+                ans = (ans >> 61) + (ans & mod);
+                if(ans >= mod) ans -= mod;
+                return ans;
+            }
+    };
+snippet z_algorithm
+    vector<int> z_algorithm(const string& s) {
+        int n = s.size();
+        vector<int> ret(n);
+        ret[0] = n;
+        int i = 1, j = 0;
+        while (i < n) {
+            while (i + j < n and s[j] == s[i + j]) j++;
+            ret[i] = j;
+            if (j == 0) { i++; continue; }
+            int k = 1;
+            while (i + k < n and k + ret[k] < j) ret[i + k] = ret[k], k++;
+            i += k, j -= k;
+        }
+        return ret;
+    }
+snippet manacher
+    vector<int> manacher(const string &s) {
+        int n = s.size();
+        vector<int> ret(n);
+        int i = 0, j = 0;
+        while (i < n) {
+            while (i - j >= 0 and i + j < n and s[i - j] == s[i + j]) j++;
+            ret[i] = j;
+            int k = 1;
+            while (i - k >= 0 and k + ret[i - k] < j) ret[i + k] = ret[i - k], k++;
+            i += k; j -= k;
+        }
+        return ret;
+    }
+snippet cord
+    struct cord {
+        //support coordinate compression
+        public:
+            cord() : cord(vector<i64>{}) {}
+            explicit cord (const vector<i64>& v) : ov(v), cv(v) {
+                set<i64> s(v.begin(), v.end());
+                int cnt = 0;
+                for (auto x : s) conv[x] = cnt++;
+                for (auto &x : cv) x = conv[x];
+                for (auto [k, u] : conv) rconv[u] = k;
+                conv[I64F] = cnt;
+            }
+            //ex
+            //index            {0, 1, 2, 3, 4, 5}
+            //original   value {5, 9, 3, 1, 6, 3}
+            //compressed value {2, 4, 1, 0, 3, 1} 
+
+            //input:index
+            //output:compressed value
+            i64 &operator[](int i) {
+                assert(0 <= i and i < (int)cv.size());
+                return cv[i]; }
+
+            //input:compressed value
+            //output:original value
+            i64 get(int v) { 
+                assert(rconv.find(v) != rconv.end());
+                return rconv[v];
+            }
+            
+            int size() const { return (int)rconv.size(); }
+
+            //input:original value
+            //output:index
+            int lower_bound(i64 v) { return conv.lower_bound(v) -> second;}
+
+            int upper_bound(i64 v) { return conv.upper_bound(v) -> second;}
+     
+        private:
+            //original, compressed
+            vector<i64> ov, cv;
+            //key:original value, value:compressed value
+            map<i64, int> conv;
+            //key:compressed value, value:origirnal value
+            map<int, i64> rconv;
+    };
+snippet jacobi
+	//Jacobi
+	for (int _ = 0; _ < m; _++) {
+		if (_ > 0 and vectorNormInf(px - x) / vectorNormInf(x) <= eps) {
+			cout << _ << endl;
+			break;
+		}
+		auto z = b;
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				if (i == j) continue;
+				z[i] -= a[i][j] * x[j];
+			}
+			z[i] /= a[i][i];
+		}
+		swap(px, x);
+		swap(z, x);
+	}
+	printVector(x);
+	fill(x.begin(), x.end(), 1);
+	px = x;
+snippet gauss-seidal
+	//Gauss-Seidal
+	for (int _ = 0; _ < m; _++) {
+		if (_ > 0 and vectorNormInf(px - x) / vectorNormInf(x) <= eps) {
+			cout << _ << endl;
+			break;
+		}
+		auto z = b;
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < i; j++) {
+				z[i] -= a[i][j] * z[j];
+			}
+			for (int j = i + 1; j < n; j++) {
+				z[i] -= a[i][j] * x[j];
+			}
+			z[i] /= a[i][i];
+		}
+		swap(px, x);
+		swap(z, x);
+	}
+	printVector(x);
+snippet lazysegbeats
+    template <class S,
+              S (*op)(S, S),
+              S (*e)(),
+              class F,
+              S (*mapping)(F, S),
+              F (*composition)(F, F),
+              F (*id)()>
+    struct lazy_segtree {
+      public:
+        lazy_segtree() : lazy_segtree(0) {}
+        explicit lazy_segtree(int n) : lazy_segtree(std::vector<S>(n, e())) {}
+        explicit lazy_segtree(const std::vector<S>& v) : _n(int(v.size())) {
+            log = internal::ceil_pow2(_n);
+            size = 1 << log;
+            d = std::vector<S>(2 * size, e());
+            lz = std::vector<F>(size, id());
+            for (int i = 0; i < _n; i++) d[size + i] = v[i];
+            for (int i = size - 1; i >= 1; i--) {
+                update(i);
+            }
+        }
+
+        void set(int p, S x) {
+            assert(0 <= p && p < _n);
+            p += size;
+            for (int i = log; i >= 1; i--) push(p >> i);
+            d[p] = x;
+            for (int i = 1; i <= log; i++) update(p >> i);
+        }
+
+        S get(int p) {
+            assert(0 <= p && p < _n);
+            p += size;
+            for (int i = log; i >= 1; i--) push(p >> i);
+            return d[p];
+        }
+
+        S prod(int l, int r) {
+            assert(0 <= l && l <= r && r <= _n);
+            if (l == r) return e();
+
+            l += size;
+            r += size;
+
+            for (int i = log; i >= 1; i--) {
+                if (((l >> i) << i) != l) push(l >> i);
+                if (((r >> i) << i) != r) push(r >> i);
+            }
+
+            S sml = e(), smr = e();
+            while (l < r) {
+                if (l & 1) sml = op(sml, d[l++]);
+                if (r & 1) smr = op(d[--r], smr);
+                l >>= 1;
+                r >>= 1;
+            }
+
+            return op(sml, smr);
+        }
+
+        S all_prod() { return d[1]; }
+
+        void apply(int p, F f) {
+            assert(0 <= p && p < _n);
+            p += size;
+            for (int i = log; i >= 1; i--) push(p >> i);
+            d[p] = mapping(f, d[p]);
+            for (int i = 1; i <= log; i++) update(p >> i);
+        }
+        void apply(int l, int r, F f) {
+            assert(0 <= l && l <= r && r <= _n);
+            if (l == r) return;
+
+            l += size;
+            r += size;
+
+            for (int i = log; i >= 1; i--) {
+                if (((l >> i) << i) != l) push(l >> i);
+                if (((r >> i) << i) != r) push((r - 1) >> i);
+            }
+
+            {
+                int l2 = l, r2 = r;
+                while (l < r) {
+                    if (l & 1) all_apply(l++, f);
+                    if (r & 1) all_apply(--r, f);
+                    l >>= 1;
+                    r >>= 1;
+                }
+                l = l2;
+                r = r2;
+            }
+
+            for (int i = 1; i <= log; i++) {
+                if (((l >> i) << i) != l) update(l >> i);
+                if (((r >> i) << i) != r) update((r - 1) >> i);
+            }
+        }
+
+        template <bool (*g)(S)> int max_right(int l) {
+            return max_right(l, [](S x) { return g(x); });
+        }
+        template <class G> int max_right(int l, G g) {
+            assert(0 <= l && l <= _n);
+            assert(g(e()));
+            if (l == _n) return _n;
+            l += size;
+            for (int i = log; i >= 1; i--) push(l >> i);
+            S sm = e();
+            do {
+                while (l % 2 == 0) l >>= 1;
+                if (!g(op(sm, d[l]))) {
+                    while (l < size) {
+                        push(l);
+                        l = (2 * l);
+                        if (g(op(sm, d[l]))) {
+                            sm = op(sm, d[l]);
+                            l++;
+                        }
+                    }
+                    return l - size;
+                }
+                sm = op(sm, d[l]);
+                l++;
+            } while ((l & -l) != l);
+            return _n;
+        }
+
+        template <bool (*g)(S)> int min_left(int r) {
+            return min_left(r, [](S x) { return g(x); });
+        }
+        template <class G> int min_left(int r, G g) {
+            assert(0 <= r && r <= _n);
+            assert(g(e()));
+            if (r == 0) return 0;
+            r += size;
+            for (int i = log; i >= 1; i--) push((r - 1) >> i);
+            S sm = e();
+            do {
+                r--;
+                while (r > 1 && (r % 2)) r >>= 1;
+                if (!g(op(d[r], sm))) {
+                    while (r < size) {
+                        push(r);
+                        r = (2 * r + 1);
+                        if (g(op(d[r], sm))) {
+                            sm = op(d[r], sm);
+                            r--;
+                        }
+                    }
+                    return r + 1 - size;
+                }
+                sm = op(d[r], sm);
+            } while ((r & -r) != r);
+            return 0;
+        }
+
+      private:
+        int _n, size, log;
+        std::vector<S> d;
+        std::vector<F> lz;
+
+        void update(int k) { d[k] = op(d[2 * k], d[2 * k + 1]); }
+        void all_apply(int k, F f) {
+            d[k] = mapping(f, d[k]);
+            if (k < size) lz[k] = composition(f, lz[k]);
+        }
+        void push(int k) {
+            all_apply(2 * k, lz[k]);
+            all_apply(2 * k + 1, lz[k]);
+            lz[k] = id();
+        }
+    };
+    struct S {
+    };
+    struct F {
+    };
+    S op(S a, S b) {
+    }
+    S e() {
+    }
+    S mapping(F f, S x) {
+    }
+    //after, before
+    F composition(F f, F g) {
+    }
+    //mapping(id(), a) == a
+    F id (){
+    }
+    lazy_segtree_beats<S, op, e, F, mapping, composition, id> seg();
+
