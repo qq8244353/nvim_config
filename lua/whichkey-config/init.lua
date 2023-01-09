@@ -6,7 +6,8 @@ wk.register({
     E = {":e ~/.config/nvim<cr>", "Edit config"},
     t = {":CompetiTestRun<cr>", "Competitest Run"},
     h = {":HopChar2<cr>", "HopChar2"},
-    s = {":SidebarNvimToggle<cr>", "HopChar2"},
+    -- s = {":SidebarNvimToggle<cr>", "HopChar2"},
+    p = {":MarkdownPreview<CR>", "Markdown Preview"},
     f = {
         name = "Telescope",
         f = {"<cmd>Telescope find_files<cr>", "Find File"},
@@ -33,5 +34,6 @@ wk.register({
             "<cmd>Lspsaga diagnostic_jump_prev<CR>",
             "Lspsaga diagnostic_jump_prev"
         }
-    }
+    },
+    s = {":2TermExec cmd=\"sss\" dir=\"%:p:h\"<CR>", "Submit Program"}
 }, {prefix = "<leader>"})

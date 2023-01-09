@@ -92,4 +92,18 @@ return require('packer').startup(function(use)
         end
     }
     use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function() vim.g.mkdp_filetypes = {"markdown"} end,
+        ft = {"markdown"}
+    })
+    -- use {
+    --     "keaising/im-select.nvim",
+    --     config = function()
+    --         require('im_select').setup({disable_auto_restore = 1})
+    --     end
+    -- }
+    use {"yoshida-m-3/vim-im-select"}
+
 end)

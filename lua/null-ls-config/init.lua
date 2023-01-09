@@ -5,9 +5,10 @@ null_ls.setup({
         -- null_ls.builtins.diagnostics.golangci_lint,
         null_ls.builtins.formatting.gofmt,
         null_ls.builtins.formatting.goimports,
-        null_ls.builtins.formatting.clang_format.with({
-            args = {"--style", "{ IndentWidth: 4 }"}
-        }), null_ls.builtins.formatting.lua_format
+        -- null_ls.builtins.formatting.clang_format.with({
+        --     args = {"--style", "{ IndentWidth: 4 }"}
+        -- }),
+        null_ls.builtins.formatting.lua_format
         -- null_ls.builtins.code_actions.gomodifytags,
         -- null_ls.builtins.diagnostics.golangci_lint,
     },

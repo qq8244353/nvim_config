@@ -23,5 +23,6 @@ require('yanky-config')
 require('sidebar-config')
 require('dressing-config')
 require('flutter-tools-config')
+-- require('im-select-config')
 vim.g.jupyter_ascending_python_executable = "python3"
 vim.cmd('colorscheme nord')
