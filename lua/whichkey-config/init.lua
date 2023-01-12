@@ -3,7 +3,21 @@ wk.register({
     q = {":q<cr>", "Quit"},
     w = {":w<cr>", "Save"},
     x = {":bdelete<cr>", "Close"},
-    E = {":e ~/.config/nvim<cr>", "Edit config"},
+    e = {
+        c = {
+            "<cmd>Telescope file_browser path=~/.config/nvim<cr>",
+            "Edit Neovim config"
+        },
+        s = {
+            "<cmd>Telescope file_browser path=~/.config/nvim/snippets<cr>",
+            "Edit snippets"
+        },
+        l = {
+            "<cmd>Telescope file_browser path=~/.config/library/<cr>",
+            "Edit pres1dentlibcpp"
+        },
+        z = {":new ~/.zshrc<cr>", "Edit .zshrc"}
+    },
     t = {":CompetiTestRun<cr>", "Competitest Run"},
     h = {":HopChar2<cr>", "HopChar2"},
     -- s = {":SidebarNvimToggle<cr>", "HopChar2"},
@@ -13,7 +27,8 @@ wk.register({
         f = {"<cmd>Telescope find_files<cr>", "Find File"},
         r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
         n = {"<cmd>enew<cr>", "New File"},
-        p = {"<cmd>Telescope yank_history<cr>", "Yank History"}
+        p = {"<cmd>Telescope yank_history<cr>", "Yank History"},
+        t = {"<cmd>Telescope file_browser<cr>", "File Brouswer(Tree)"}
     },
     l = {
         name = "LSP",

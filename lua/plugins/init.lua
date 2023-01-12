@@ -42,6 +42,7 @@ return require('packer').startup(function(use)
         -- or                            , branch = '0.1.x',
         requires = {{'nvim-lua/plenary.nvim'}}
     }
+    use {"nvim-telescope/telescope-file-browser.nvim"}
     use {'glepnir/dashboard-nvim'}
     use {
         "akinsho/toggleterm.nvim",
