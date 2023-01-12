@@ -105,5 +105,15 @@ return require('packer').startup(function(use)
     --     end
     -- }
     use {"yoshida-m-3/vim-im-select"}
+    -- use {
+    --     "smjonas/inc-rename.nvim",
+    --     config = function()
+    --         require("inc_rename").setup({input_buffer_type = "dressing"})
+    --     end
+    -- }
+    use {
+        "RRethy/vim-illuminate",
+        config = function() require("vim-illuminate-config") end
+    }
 
 end)
