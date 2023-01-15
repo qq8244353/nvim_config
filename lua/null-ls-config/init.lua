@@ -10,6 +10,12 @@ null_ls.setup({
         -- }),
         null_ls.builtins.formatting.lua_format
         -- null_ls.builtins.code_actions.gomodifytags,
+        -- null_ls.builtins.formatting.astyle.with({
+        --     extra_args = {
+        --         "--style=google", "--pad-oper", "--add-one-line-braces",
+        --         "--pad-header", "--pad-comma"
+        --     }
+        -- })
         -- null_ls.builtins.diagnostics.golangci_lint,
     },
     on_attach = function(client, bufnr)

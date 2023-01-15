@@ -116,5 +116,10 @@ return require('packer').startup(function(use)
         "RRethy/vim-illuminate",
         config = function() require("vim-illuminate-config") end
     }
+    use {
+        'mhartington/formatter.nvim',
+        -- function() require('formatter').setup() end
+        config = function() require('formatter-config') end
+    }
 
 end)
