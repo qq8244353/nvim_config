@@ -13,21 +13,31 @@ require("formatter").setup {
         cpp = {
             -- You can also define your own configuration
             function()
-                -- Full specification of configurations is down below and in Vim help
-                -- files
                 return {
                     exe = "astyle",
                     args = {
                         "--style=google", "--pad-oper", "--add-one-line-braces",
                         "--pad-header", "--pad-comma"
-                        -- util.escape_path(util.get_current_buffer_file_path()),
                     },
                     stdin = true
                 }
             end
+            -- , function()
+            --     return {exe = "setopt", args = {"nonomatch"}, stdin = true}
+            -- end, function()
+            --     return {
+            --         exe = "bash gsed",
+            --         args = {
+            --             "-z",
+            --             "\\'s/\\([^\n]*\\)\n\\([^\n]*\\)cin \\([^\n]*\\);/\1 cin \3/g\\'"
+            --         },
+            --         stdin = true
+            --     }
+            -- end
         }
     }
 }
+
 vim.cmd [[
   augroup FormatAutogroup
     autocmd!
