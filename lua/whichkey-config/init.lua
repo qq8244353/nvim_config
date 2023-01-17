@@ -16,7 +16,8 @@ wk.register({
             "<cmd>Telescope file_browser path=~/.config/library/<cr>",
             "Edit pres1dentlibcpp"
         },
-        z = {":new ~/.zshrc<cr>", "Edit .zshrc"}
+        z = {":tabnew ~/.zshrc<cr>", "Edit .zshrc"},
+        e = {":e .<cr>", "Edit Neovim config"}
     },
     t = {":CompetiTestRun<cr>", "Competitest Run"},
     h = {":HopChar2<cr>", "HopChar2"},
@@ -26,7 +27,7 @@ wk.register({
         name = "Telescope",
         f = {"<cmd>Telescope find_files<cr>", "Find File"},
         r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
-        n = {"<cmd>enew<cr>", "New File"},
+        -- n = {"<cmd>enew<cr>", "New File"},
         p = {"<cmd>Telescope yank_history<cr>", "Yank History"},
         t = {"<cmd>Telescope file_browser<cr>", "File Brouswer(Tree)"}
     },

@@ -9,13 +9,13 @@ require('competitest').setup {
             exec = 'g++',
             args = {
                 '-std=c++17', '-I', '/Users/preds1dent/.kyoproInclude',
-                '$(FNAME)', '-o', '$(FNOEXT)'
+                '$(FNAME)', '-o', 'a.out'
             }
         },
         some_lang = {exec = 'some_compiler', args = {'$(FNAME)'}}
     },
     run_command = {
-        cpp = {exec = './$(FNOEXT)'},
+        cpp = {exec = './a.out'},
         some_lang = {exec = 'some_interpreter', args = {'$(FNAME)'}}
     }
 }
