@@ -71,7 +71,6 @@ return require('packer').startup(function(use)
     }
     use {"jose-elias-alvarez/null-ls.nvim"}
     use {"untitled-ai/jupyter_ascending.vim"}
-    use {"MortenStabenau/matlab-vim"}
     use {
         'andymass/vim-matchup',
         setup = function()
