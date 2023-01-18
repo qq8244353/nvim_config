@@ -21,19 +21,16 @@ require("formatter").setup {
                     },
                     stdin = true
                 }
+            end, function()
+                return {
+                    exe = "gsed",
+                    args = {
+                        "-z", "-e",
+                        "'s/\\([^\\n]*\\)\\n\\(\\s*\\)\\([^\\n]*\\)cin \\([^\\n]*\\);/\\1 \\3cin \\4;/g'"
+                    },
+                    stdin = true
+                }
             end
-            -- , function()
-            --     return {exe = "setopt", args = {"nonomatch"}, stdin = true}
-            -- end, function()
-            --     return {
-            --         exe = "bash gsed",
-            --         args = {
-            --             "-z",
-            --             "\\'s/\\([^\n]*\\)\n\\([^\n]*\\)cin \\([^\n]*\\);/\1 cin \3/g\\'"
-            --         },
-            --         stdin = true
-            --     }
-            -- end
         }
     }
 }
