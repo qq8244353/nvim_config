@@ -21,40 +21,35 @@ dashboard.center_pad = 3
 
 dashboard.custom_center = {
     {
-        icon = "  ",
-        desc = "Find  File                              ",
-        action = "Telescope find_files",
-        shortcut = "<Leader> f f"
-    }, {
         icon = "  ",
         desc = "Recently opened files                   ",
-        action = "Telescope my_mru",
+        r = {"<cmd>", "Open Recent File"},
+        action = "Telescope oldfiles",
         shortcut = "<Leader> f r"
-    }, {
-        icon = "  ",
-        desc = "Project grep                            ",
-        action = "Telescope live_grep",
-        shortcut = "<Leader> f g"
     }, {
         icon = "  ",
         desc = "Open Nvim config                        ",
         action = "e ~/.config/nvim",
         shortcut = "<Leader> e v"
     }, {
-        icon = "  ",
-        desc = "Open tree                               ",
-        action = "e .",
-        shortcut = "e           "
-    }, {
-        icon = "  ",
-        desc = "Quit Nvim                               ",
-        -- desc = "Quit Nvim                               ",
-        action = "qa",
-        shortcut = "q           "
-    }, {
         icon = "  ",
         desc = "Competitive                             ",
         action = "e ~/projects/competitive",
+        shortcut = "            "
+    }, {
+        icon = "  ",
+        desc = "LaTeX                                   ",
+        action = "e ~/projects/latex",
+        shortcut = "            "
+    }, {
+        icon = "  ",
+        desc = "Jupyter Notebook                        ",
+        action = "e ~/projects/notebook",
+        shortcut = "            "
+    }, {
+        icon = "  ",
+        desc = "Matlab                                  ",
+        action = "e ~/projects/matlab",
         shortcut = "            "
     }
 }
