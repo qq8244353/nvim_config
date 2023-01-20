@@ -120,5 +120,8 @@ return require('packer').startup(function(use)
         -- function() require('formatter').setup() end
         config = function() require('formatter-config') end
     }
-
+    use {
+        'glacambre/firenvim',
+        run = function() vim.fn['firenvim#install'](0) end
+    }
 end)
