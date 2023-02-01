@@ -29,7 +29,8 @@ wk.register({
         r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
         -- n = {"<cmd>enew<cr>", "New File"},
         p = {"<cmd>Telescope yank_history<cr>", "Yank History"},
-        t = {"<cmd>Telescope file_browser<cr>", "File Brouswer(Tree)"}
+        t = {"<cmd>Telescope file_browser<cr>", "File Brouswer(Tree)"},
+        l = {"<cmd>Telescope live_grep<cr>", "Live Grep"}
     },
     l = {
         name = "LSP",

@@ -5,6 +5,7 @@ null_ls.setup({
         -- null_ls.builtins.diagnostics.golangci_lint,
         null_ls.builtins.formatting.gofmt,
         null_ls.builtins.formatting.goimports,
+        null_ls.builtins.formatting.autopep8,
         -- null_ls.builtins.formatting.clang_format.with({
         --     args = {"--style", "{ IndentWidth: 4 }"}
         -- }),
