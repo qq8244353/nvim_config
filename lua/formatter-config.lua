@@ -26,8 +26,21 @@ require("formatter").setup {
                     exe = "gsed",
                     args = {
                         "-z", "-e",
-                        "'s/\\([^\\n]*\\)\\n\\(\\s*\\)\\([^\\n]*\\)cin \\([^\\n]*\\);/\\1 \\3cin \\4;/g'"
+                        -- "'s/\\([^\\n]*\\)\\n\\(\\s*\\)\\([^\\n]*\\)cin \\([^\\n]*\\);/\\1 \\3cin \\4;/g'"
+                        -- "'s/\\n\\([a-zA-z0-9<>(), ]*\\);\\n\\([a-zA-z0-9,() ]*\\) cin \\([^\\n]*\\);/\\n\\1; \\2cin \\3;/g'"
+                        "'s/\\n\\([a-zA-z0-9<>(), ]*\\);\\n[ ]*\\(\\( [a-zA-Z]\\)\\?[a-zA-Z0-9,() ]*\\)cin \\([^\\n]*\\);/\\n\\1; \\2\\3cin \\4;/g'",
+                        "-e",
+                        "'s/\\([^\\n]*--;\\)\\(\\n[ ]*\\([^\\n]*--;\\)\\)\\?\\(\\n[ ]*\\([^\\n]*--;\\)\\)\\?\\(\\n[ ]*\\([^\\n]*--;\\)\\)\\?\\(\\n[ ]*\\([^\\n]*--;\\)\\)\\?/\\1 \\3 \\5 \\7 \\9/g'"
                     },
+                    stdin = true
+                }
+            end
+        },
+        lua = {
+            function()
+                return {
+                    exe = "lua-format",
+                    args = {"--indent-width=4"},
                     stdin = true
                 }
             end
@@ -38,6 +51,6 @@ require("formatter").setup {
 vim.cmd [[
   augroup FormatAutogroup
     autocmd!
-    autocmd BufWritePost *.cpp FormatWrite
+    autocmd BufWritePost * FormatWrite
   augroup END
 ]]

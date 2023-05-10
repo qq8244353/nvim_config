@@ -1,4 +1,6 @@
+vim.g.mapleader = ' '
 local wk = require("which-key")
+wk.setup()
 wk.register({
     q = {":q<cr>", "Quit"},
     w = {":w<cr>", "Save"},
