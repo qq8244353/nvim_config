@@ -5,7 +5,14 @@ require'toggleterm'.setup {
     shading_factor = 1,
     start_in_insert = true,
     persist_size = true,
-    direction = 'float'
+    direction = 'float',
+    -- size = function(term)
+    --     if term.direction == "horizontal" then
+    --         return 15
+    --     elseif term.direction == "vertical" then
+    --         return vim.o.columns * 0.4
+    --     end
+    -- end
 }
 
 local Terminal = require('toggleterm.terminal').Terminal
@@ -19,11 +26,11 @@ local lazygit = Terminal:new({
                                     {noremap = true, silent = true})
     end
 })
+vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>",
+                        {noremap = true, silent = true})
 
 function _lazygit_toggle() lazygit:toggle() end
 
-vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>",
-                        {noremap = true, silent = true})
 function _G.set_terminal_keymaps()
     local opts = {buffer = 0}
     vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
