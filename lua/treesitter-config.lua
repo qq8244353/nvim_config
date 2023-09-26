@@ -4,6 +4,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] =
         virtual_text = {spacing = 5, severity_limit = 'Warning'},
         update_in_insert = true
     })
+
 require'nvim-treesitter.configs'.setup {
     auto_install = true,
     highlight = {
@@ -19,9 +20,7 @@ require'nvim-treesitter.configs'.setup {
         additional_vim_regex_highlighting = false
     },
     autotag = {enable = true},
-    matchup = {
-        enable = true
-	}
+    matchup = {enable = true}
 }
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 parser_config.matlab = {

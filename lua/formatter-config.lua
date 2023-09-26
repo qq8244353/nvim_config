@@ -44,6 +44,36 @@ require("formatter").setup {
                     stdin = true
                 }
             end
+        },
+        javascript = {
+            function()
+                return {
+                    exe = 'prettier', -- change this to your prettier path
+                    args = {
+                        '--config-precedence', 'prefer-file', '--print-width',
+                        vim.bo.textwidth, '--stdin-filepath',
+                        vim.fn.shellescape(vim.api.nvim_buf_get_name(0))
+                    },
+                    stdin = true
+                }
+            end
+        },
+        tf = {
+            function()
+                return {
+                    exe = 'terraform', -- change this to your prettier path
+                    args = {'fmt', '-'},
+                    stdin = true
+                }
+            end
+        },
+        haskell = {
+            function()
+                return {
+                    exe = 'hindent', -- change this to your prettier path
+                    stdin = true
+                }
+            end
         }
     }
 }

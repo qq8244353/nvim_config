@@ -36,3 +36,5 @@ vim.o.expandtab = true
 vim.bo.expandtab = true
 vim.opt.laststatus = 3
 vim.g.mapleader = ' '
+vim.opt.clipboard = "unnamedplus"
+vim.opt.swapfile = false

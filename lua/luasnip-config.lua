@@ -104,6 +104,16 @@ ls.add_snippets("all", {
         d(4, function(args) return sn(nil, {i(1, args[1])}) end, {3}),
         t(") cin >> "),
         d(5, function(args) return sn(nil, {i(1, args[1])}) end, {2}), t("[i];")
+    }), s("inv2", {
+        t("vector "), i(1, "a"), t("("), i(2, "n"), t(", vector<"),
+        c(4, {t("int"), t("i64"), t("char"), t("string")}), t(">("), i(3, "m"),
+        t(")); rep(mi, "),
+        d(5, function(args) return sn(nil, {i(1, args[1])}) end, {2}),
+        t(") rep(mj, "),
+        d(6, function(args) return sn(nil, {i(1, args[1])}) end, {3}),
+        t(") cin >> "),
+        d(7, function(args) return sn(nil, {i(1, args[1])}) end, {1}),
+        t("[mi][mj];")
     }), s("inv2,", {
         t("vector<"), c(1, {t("int"), t("i64"), t("char"), t("string")}),
         t("> "), i(2, "x"), t("("),
@@ -138,7 +148,34 @@ ls.add_snippets("all", {
         i(2, "a"), t(".begin(), "),
         d(3, function(args) return sn(nil, {i(1, args[1])}) end, {2}),
         t(".end());")
-    })
+    }), s("ran", {
+        i(1, "a"), t(".begin(),"),
+        d(2, function(args) return sn(nil, {i(1, args[1])}) end, {1}),
+        t(".end());")
+    }), s("rran", {
+        i(1, "a"), t(".rbegin(),"),
+        d(2, function(args) return sn(nil, {i(1, args[1])}) end, {1}),
+        t(".rend());")
+    }), s("to", {
+        t("vector to("), i(1, "m"), t({", vector<int>());", "rep(i, "}),
+        d(2, function(args) return sn(nil, {i(1, args[1])}) end, {1}), t({
+            ") {", "\tint u, v; cin >> u >> v;", "\tu--, v--;",
+            "\tto[u].push_back(v);", "\tto[v].push_back(u);", "}"
+        })
+    }), s("tow", {
+        t("vector to("), i(1, "m"), t({", vector<i_i>());", "rep(i, "}),
+        d(2, function(args) return sn(nil, {i(1, args[1])}) end, {1}), t({
+            ") {", "\tint u, v, w; cin >> u >> v >> w;", "\tu--, v--;",
+            "\tto[u].push_back({v, w});", "\tto[v].push_back({u, w});", "}"
+        })
+    }), s("dfs", {
+        t({
+            "auto dfs = [&](auto dfs, int v, int p) -> void {",
+            "\tfor (auto u : to[v]) {", "\t\tif (u == p) { continue; }",
+            "\t\tdfs(dfs, u, v);", "\t}", "};"
+        })
+    }),
+    s("didj", {c(1, {t("vector<int> di = {0, 1, 0, -1}, dj = {1, 0, -1, 0};")})})
 })
 
 require("luasnip.loaders.from_snipmate").load({

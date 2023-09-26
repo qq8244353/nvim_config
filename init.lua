@@ -5,54 +5,63 @@ vim.cmd [[packadd packer.nvim]]
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use 'shaunsingh/nord.nvim'
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true},
-        config = function() require('lualine-config') end
+    use {'neovim/nvim-lspconfig', 
+      tag = '0.1.6',
+      config = function()
+        require("lspconfig-config")
+      end
     }
-    use {
-        'akinsho/bufferline.nvim',
-        requires = 'nvim-tree/nvim-web-devicons',
-        config = function() require('bufferline-config') end
-    }
-    use {
-        "akinsho/toggleterm.nvim",
-        config = function() require("toggleterm-config") end
-    }
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        config = function() require("treesitter-config") end,
-        run = ":TSUpdate"
-    }
-    use {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
-        requires = {
-            "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim", {
-                -- only needed if you want to use the commands with "_with_window_picker" suffix
-                's1n7ax/nvim-window-picker',
-                tag = "v1.*",
-                config = function() require('neotree-config') end
-            }
-        }
-    }
-    use {
-        'mhartington/formatter.nvim',
-        -- function() require('formatter').setup() end
-        config = function() require('formatter-config') end
-    }
-    use {
-        "folke/which-key.nvim",
-        config = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-            require("whichkey-config")
-        end
-    }
-    use {'akinsho/git-conflict.nvim', tag = "v1.1.2", config = function()
-      require('git-conflict').setup()
-    end}
+    -- use {
+    --     'nvim-lualine/lualine.nvim',
+    --     requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    --     config = function() require('lualine-config') end
+    -- }
+    -- use {
+    --     'akinsho/bufferline.nvim',
+    --     requires = 'nvim-tree/nvim-web-devicons',
+    --     config = function() require('bufferline-config') end
+    -- }
+    -- use {
+    --     'nvim-treesitter/nvim-treesitter',
+    --     config = function() require("treesitter-config") end,
+    --     run = ":TSUpdate"
+    -- }
+    -- use {
+    --     "nvim-neo-tree/neo-tree.nvim",
+    --     branch = "v2.x",
+    --     requires = {
+    --         "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+    --         "MunifTanjim/nui.nvim", {
+    --             -- only needed if you want to use the commands with "_with_window_picker" suffix
+    --             's1n7ax/nvim-window-picker',
+    --             tag = "v1.*",
+    --             config = function() require('neotree-config') end
+    --         }
+    --     }
+    -- }
+    -- use {
+    --     'mhartington/formatter.nvim',
+    --     -- function() require('formatter').setup() end
+    --     config = function() require('formatter-config') end
+    -- }
+    -- use {
+    --     "folke/which-key.nvim",
+    --     config = function()
+    --         vim.o.timeout = true
+    --         vim.o.timeoutlen = 300
+    --         require("whichkey-config")
+    --     end
+    -- }
+    -- use {
+    --     'akinsho/git-conflict.nvim',
+    --     tag = "v1.1.2",
+    --     config = function() require('git-conflict').setup() end
+    -- }
+    -- use {'L3MON4D3/LuaSnip', config = function() require("luasnip-config") end}
+    -- use {
+    --     'numToStr/Comment.nvim',
+    --     config = function() require('comment-config') end
+    -- }
     -- use {'windwp/nvim-ts-autotag'}
     -- use {'p00f/nvim-ts-rainbow'}
     -- use {
@@ -75,16 +84,8 @@ require('packer').startup(function(use)
     -- use {'hrsh7th/cmp-cmdline'}
     -- use {'hrsh7th/nvim-cmp'}
     -- use { 'saadparwaiz1/cmp_luasnip' }
-    -- use {
-    -- 	    'L3MON4D3/LuaSnip',
-    --      config = function() require("luasnip-config") end
-    -- }
     -- use {"williamboman/mason.nvim"}
     -- use {"lukas-reineke/indent-blankline.nvim"}
-    use {
-        "numToStr/Comment.nvim",
-        config = function() require("comment-config") end
-    }
     -- use {
     --     'phaazon/hop.nvim',
     --     branch = 'v2', -- optional but strongly recommended
@@ -144,6 +145,10 @@ require('packer').startup(function(use)
     --     run = function() vim.fn['firenvim#install'](0) end
     -- }
     -- use {'andweeb/presence.nvim'}
+    -- use {
+    --     "akinsho/toggleterm.nvim",
+    --     config = function() require("toggleterm-config") end
+    -- }
 end)
 -- vim.g.jupyter_ascending_python_executable = "python3"
 vim.cmd('colorscheme nord')
