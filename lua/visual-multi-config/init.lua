@@ -1,1 +1,0 @@
--- vim.g.VM_custom_remaps = {'<c-j>' : '<C-Down>', '<c-k>': '<C-Up>' }
