@@ -2,8 +2,8 @@
 -- Setup language servers.
 vim.lsp.set_log_level("debug")
 local lspconfig = require('lspconfig')
--- tsserver 
-local function organize_imports()
+-- tsserver {
+local function tsserver_organize_imports()
   local params = {
     command = "_typescript.organizeImports",
     arguments = {vim.api.nvim_buf_get_name(0)},
@@ -15,12 +15,30 @@ end
 lspconfig.tsserver.setup {
   commands = {
     OrganizeImports = {
-      organize_imports,
+      tsserver_organize_imports,
       description = "Organize Imports"
     }
   }
 }
--- tsserver 
+-- } tsserver 
+-- gopls {
+local function gopls_organize_imports()
+  local params = {
+    command = "imports",
+    arguments = {"-w", vim.api.nvim_buf_get_name(0)},
+    title = ""
+  }
+  vim.lsp.buf.execute_command(params)
+end
+lspconfig.gopls.setup {
+  commands = {
+    OrganizeImports = {
+      gopls_organize_imports,
+      description = "Organize Imports"
+    }
+  }
+}
+-- } gopls
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)

@@ -1,5 +1,5 @@
 vim.cmd('filetype plugin indent on')
-vim.api.nvim_exec('language en_US', true)
+vim.api.nvim_exec('language en_US.UTF-8', true)
 vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.hidden = true
 vim.o.whichwrap = 'b,s,<,>,[,],h,l'
