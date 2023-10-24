@@ -30,18 +30,18 @@ require("lazy").setup({
     build = ":TSUpdate"
   },
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    lazy = false,
-    priority = 100,
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    },
-    config = function()
-      require("neotree-config")
-    end,
+   "nvim-neo-tree/neo-tree.nvim",
+   lazy = false,
+   priority = 100,
+   branch = "v3.x",
+   dependencies = {
+     "nvim-lua/plenary.nvim",
+     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+     "MunifTanjim/nui.nvim",
+   },
+   config = function()
+     require("neotree-config")
+   end,
   },
   {
     "numToStr/Comment.nvim",
@@ -60,7 +60,6 @@ require("lazy").setup({
     end,
   }
 })
-
 
 
 

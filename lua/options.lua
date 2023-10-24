@@ -1,7 +1,13 @@
 vim.cmd('filetype plugin indent on')
 vim.api.nvim_exec('language en_US.UTF-8', true)
-vim.o.shortmess = vim.o.shortmess .. 'c'
+vim.opt.smartindent = true
+vim.g.mapleader = ' '
+vim.opt.clipboard = "unnamedplus"
+vim.opt.swapfile = false
+vim.o.updatetime = 300
+vim.o.timeoutlen = 500
 vim.o.hidden = true
+vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.whichwrap = 'b,s,<,>,[,],h,l'
 vim.o.pumheight = 10
 vim.o.fileencoding = 'utf-8'
@@ -14,8 +20,6 @@ vim.o.showtabline = 2
 vim.o.showmode = false
 vim.o.backup = false
 vim.o.writebackup = false
-vim.o.updatetime = 300
-vim.o.timeoutlen = 500
 vim.o.clipboard = "unnamedplus"
 vim.o.hlsearch = false
 vim.o.ignorecase = true
@@ -36,6 +40,3 @@ vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
 vim.opt.laststatus = 3
-vim.g.mapleader = ' '
-vim.opt.clipboard = "unnamedplus"
-vim.opt.swapfile = false
