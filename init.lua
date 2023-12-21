@@ -58,7 +58,39 @@ require("lazy").setup({
     config = function()
        require("lspconfig-config")
     end,
+  },
+  { 
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("ibl").setup()
+      -- require("ibl").overwrite({
+      --   exclude = {
+      --     "*"
+      --   },
+      --   include = {
+      --     "yaml"
+      --   }
+      -- })
+    end,
+    -- main = "ibl",
+    opts = {}
+  },
+  {
+    'akinsho/git-conflict.nvim',
+    version = "*",
+    config = true
   }
+  -- {
+  --   'glepnir/template.nvim',
+  --   cmd = {'Template','TemProject'},
+  --   config = function()
+  --     require('template').setup({
+  --       temp_dir = '~/.config/nvim/templates',
+  --       author = 'qq8244353',
+  --       email = 'qq8244353@gmail.com',
+  --     })
+  --   end,
+  -- }
 })
 
 
