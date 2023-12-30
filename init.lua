@@ -79,6 +79,10 @@ require("lazy").setup({
     'akinsho/git-conflict.nvim',
     version = "*",
     config = true
+  },
+  {
+    "williamboman/mason.nvim",
+    config = true
   }
   -- {
   --   'glepnir/template.nvim',

@@ -40,3 +40,4 @@ vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
 vim.opt.laststatus = 3
+vim.g.omni_sql_no_default_maps = 1
