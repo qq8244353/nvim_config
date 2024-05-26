@@ -53,6 +53,14 @@ require("lazy").setup({
     end,
   },
   {
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    build = "make install_jsregexp",
+    config = function()
+      require("luasnip-config")
+    end,
+  },
+  {
     "neovim/nvim-lspconfig", 
     tag = 'v0.1.6',
     config = function()
