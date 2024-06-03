@@ -5,6 +5,24 @@ snippet in
 snippet in2
 	int ${1:n}, ${2:m}; cin >> $1 >> $2;
 	${3}
+snippet in3
+	int ${1:n}, ${2:m}, ${3:k}; cin >> $1 >> $2 >> $3;
+	${4}
+snippet in4
+	int ${1:a}, ${2:b}, ${3:c}, ${4:d}; cin >> $1 >> $2 >> $3 >> $4;
+	${5}
+snippet il
+	ll ${1:a}; cin >> $1;
+	${2}
+snippet il2
+	ll ${1:n}, ${2:m}; cin >> $1 >> $2;
+	${3}
+snippet il3
+	ll ${1:n}, ${2:m}, ${3:k}; cin >> $1 >> $2 >> $3;
+	${4}
+snippet il4
+	ll ${1:a}, ${2:b}, ${3:c}, ${4:d}; cin >> $1 >> $2 >> $3 >> $4;
+	${5}
 snippet si
 	string ${1:s}; cin >> $1;
 	${2}
@@ -12,14 +30,17 @@ snippet si2
 	string ${1:s}, ${2:t}; cin >> $1 >> $2;
 	${3}
 snippet vi
-	vector<int> ${1:a}(${2:n}); rep(i, $2) cin >> $1[i];
+	vector<int> ${1:A}(${2:n}); rep(i, $2) cin >> $1[i];
 	${3}
 snippet vi2
-	vector<int> ${1:a}(${3:n}), ${2:b}($3); rep(i, $3) cin >> $1[i] >> $2[i];
-	${3}
+	vector<int> ${1:A}(${3:n}), ${2:B}($3); rep(i, $3) cin >> $1[i] >> $2[i];
+	${4}
+snippet vi3
+	vector<int> ${1:A}(${3:n}), ${2:B}($4), ${3:C}; rep(i, $4) cin >> $1[i] >> $2[i] >> $3[i];
+	${5}
 snippet vvi
-	vector ${1:a}(${2:h}, vector<int>(${3:w})); rep(i, $2) rep(j, $3) cin >> $1[i][j];
-	${3}
+	vector ${1:A}(${2:h}, vector<int>(${3:w})); rep(i, $2) rep(j, $3) cin >> $1[i][j];
+	${4}
 snippet fora
 	for (auto ${1:e} : ${2:v}) {
 		${3}
@@ -46,3 +67,40 @@ snippet drep2
 	}
 snippet cyes
 	cout << (yes ? "Yes" : "No") << endl;
+snippet ran
+	${1:v}.begin(), $1.end()${2}
+snippet rran
+	${1:v}.rbegin(), $1.rend()${2}
+snippet pb
+	push_back(${1});
+	${2}
+snippet vout
+	rep(i, ${1:v}.size()) cout << ${1}[i] << (i + 1 == ${1}.size() ? "\n" : " ");
+	${2}
+snippet vvout
+	rep(i, ${1:v}.size()) rep(j, $1[0].size()) cout << ${1}[i][j] << (j + 1 == ${1}.size() ? "\n" : " ");
+	${2}
+snippet vverr
+	rep(i, ${1:v}.size()) rep(j, $1[0].size()) cerr << (${1}[i][j] == INF or ${1}[i][j] == LNF or ${1}[i][j] == INF / 10 or ${1}[i][j] == LNF / 10 ? -1 : ${1}[i][j]) << (j + 1 == ${1}.size() ? "\n" : " ");
+	${2}
+snippet verr
+	rep(i, ${1:v}.size()) cerr << ${1}[i] << (i + 1 == ${1}.size() ? "\n" : " ");
+	${2}
+snippet voutn
+	rep(i, ${1:v}.size()) cout << ${1}[i] << endl;
+	${2}
+snippet fyes
+	bool yes = false;
+	cout << (yes ? "Yes" : "No") << endl;
+snippet tyes
+	bool yes = true;
+	cout << (yes ? "Yes" : "No") << endl;
+snippet ans0
+	ll ans = 0;
+	cout << ans << endl;
+snippet ans+
+	ll ans = LNF;
+	cout << ans << endl;
+snippet ans-
+	ll ans = -LNF;
+	cout << ans << endl;
