@@ -1,5 +1,5 @@
 vim.cmd('filetype plugin indent on')
-vim.api.nvim_exec('language en_US.UTF-8', true)
+-- vim.api.nvim_exec('language en_US.UTF-8', true)
 vim.opt.smartindent = true
 vim.g.mapleader = ' '
 vim.opt.clipboard = "unnamedplus"

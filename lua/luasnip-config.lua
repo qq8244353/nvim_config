@@ -1,6 +1,9 @@
 require("luasnip.loaders.from_snipmate").lazy_load(
   {
-    paths = { "./snippets" }
+    paths = {
+      "./snippets",
+      "./snippets/library",
+    }
   }
 )
 local ls = require("luasnip")

@@ -36,11 +36,11 @@ snippet vi2
 	vector<int> ${1:A}(${3:n}), ${2:B}($3); rep(i, $3) cin >> $1[i] >> $2[i];
 	${4}
 snippet vi3
-	vector<int> ${1:A}(${3:n}), ${2:B}($4), ${3:C}; rep(i, $4) cin >> $1[i] >> $2[i] >> $3[i];
+	vector<int> ${1:A}(${4:n}), ${2:B}($4), ${3:C}($4); rep(i, $4) cin >> $1[i] >> $2[i] >> $3[i];
 	${5}
 snippet vvi
-	vector ${1:A}(${2:h}, vector<int>(${3:w})); rep(i, $2) rep(j, $3) cin >> $1[i][j];
-	${4}
+	vector ${1:A}(${2:h}, vector<${4:int}>(${3:w})); rep(i, $2) rep(j, $3) cin >> $1[i][j];
+	${5}
 snippet fora
 	for (auto ${1:e} : ${2:v}) {
 		${3}
@@ -74,14 +74,20 @@ snippet rran
 snippet pb
 	push_back(${1});
 	${2}
+snippet eb
+	emplace_back(${1});
+	${2}
+snippet np
+	next_permutation(${1})${2}
+	${3}
 snippet vout
 	rep(i, ${1:v}.size()) cout << ${1}[i] << (i + 1 == ${1}.size() ? "\n" : " ");
 	${2}
 snippet vvout
-	rep(i, ${1:v}.size()) rep(j, $1[0].size()) cout << ${1}[i][j] << (j + 1 == ${1}.size() ? "\n" : " ");
+	rep(i, ${1:v}.size()) rep(j, $1[i].size()) cout << ${1}[i][j] << (j + 1 == ${1}[i].size() ? "\n" : " ");
 	${2}
 snippet vverr
-	rep(i, ${1:v}.size()) rep(j, $1[0].size()) cerr << (${1}[i][j] == INF or ${1}[i][j] == LNF or ${1}[i][j] == INF / 10 or ${1}[i][j] == LNF / 10 ? -1 : ${1}[i][j]) << (j + 1 == ${1}.size() ? "\n" : " ");
+	rep(i, ${1:v}.size()) rep(j, $1[i].size()) cerr << (${1}[i][j] == INF or ${1}[i][j] == LNF or ${1}[i][j] == INF / 10 or ${1}[i][j] == LNF / 10 ? -1 : ${1}[i][j]) << (j + 1 == ${1}[i].size() ? "\n" : " ");
 	${2}
 snippet verr
 	rep(i, ${1:v}.size()) cerr << ${1}[i] << (i + 1 == ${1}.size() ? "\n" : " ");
@@ -95,6 +101,15 @@ snippet fyes
 snippet tyes
 	bool yes = true;
 	cout << (yes ? "Yes" : "No") << endl;
+snippet yes
+	cout << "Yes" << endl;
+snippet no
+	cout << "No" << endl;
+snippet ans
+	cout << ans << endl;
+snippet ansm
+	mint ans = 0;
+	cout << ans.val() << endl;
 snippet ans0
 	ll ans = 0;
 	cout << ans << endl;
@@ -104,3 +119,14 @@ snippet ans+
 snippet ans-
 	ll ans = -LNF;
 	cout << ans << endl;
+snippet ninj
+	rep(kk, di.size()) {
+		int ni = ${1:i} + di[kk];
+		int nj = ${2:j} + dj[kk];
+		if (ni < 0 or nj < 0 or ni >= ${3:h} or nj >= ${4:w}) continue;
+		if (${5:S}[ni][nj] == '${6:#}') continue;
+		if (dp[ni][nj] <= dp[$1][$2] + ${7:1}) continue;
+		dp[ni][nj] = dp[$1][$2] + $7;
+		q.emplace(ni, nj);
+		${8}
+	}
